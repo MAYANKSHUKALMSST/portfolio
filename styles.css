@@ -24,7 +24,9 @@ body {
   z-index: 0;
   background: transparent;
 }
-
+#home{
+  background:black;
+}
 /* Navigation */
 nav {
   position: fixed;
@@ -33,7 +35,7 @@ nav {
   width: 100%;
   padding: 20px 0;
   background: #0b0b0b;
-  z-index: 9999;
+  z-index: 10000; /* Above all content */
   pointer-events: auto;
 }
 
@@ -45,6 +47,8 @@ nav .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  background: #0b0b0b;
+  
 }
 
 .hamburger {
@@ -55,7 +59,7 @@ nav .container {
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10000;
+  z-index: 10001;
 }
 
 .nav-links {
@@ -70,6 +74,7 @@ nav .container {
 nav.scrolled .nav-links {
   opacity: 1;
   visibility: visible;
+  
 }
 
 .nav-links a {
@@ -96,7 +101,7 @@ nav.scrolled .nav-links {
   background-color: #0b0b0b;
   min-width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1000;
+  z-index: 10001;
   padding: 10px 40px 10px 10px;
   border-radius: 4px;
   top: 100%;
@@ -128,6 +133,7 @@ nav.scrolled .nav-links {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 10px 40px 10px 10px;
   border-radius: 4px;
+  z-index: 10001;
 }
 
 .dropdown-item:hover .sub-dropdown,
@@ -156,6 +162,7 @@ nav.scrolled .nav-links {
   overflow: hidden;
   z-index: 1;
   pointer-events: none;
+  padding-top: 0; /* Will be set dynamically by JS */
 }
 
 .hero-content {
@@ -253,12 +260,19 @@ nav.scrolled .subtitle {
   100% { opacity: 0; }
 }
 
+/* Main Content Wrapper */
+.main-content {
+  position: relative;
+  z-index: 1; /* Below navbar */
+  margin-top: 0; /* Will be set dynamically by JS */
+}
+
 /* Content Sections */
 .content-section {
   background: transparent;
   position: relative;
   z-index: 1;
-  padding: 100px 20px 60px;
+  padding: 20px; /* Only horizontal and bottom padding */
 }
 
 .content-section .container {
@@ -322,7 +336,7 @@ nav.scrolled .subtitle {
   flex-direction: column;
   gap: 20px;
   max-width: 600px;
-  margin: 0 auto;
+  margin-top: 0 auto;
 }
 
 .embedded-box {
@@ -334,6 +348,7 @@ nav.scrolled .subtitle {
   align-items: center;
   justify-content: center;
   text-align: center;
+  
 }
 
 .dropping-texts {
@@ -428,6 +443,8 @@ footer {
   padding: 30px 20px;
   text-align: center;
   font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* Responsive Design */
@@ -440,8 +457,8 @@ footer {
     font-size: 2rem;
   }
 
-  nav.scrolled .site-title,.subtitle {
-    font-size: 1rem;
+  nav.scrolled .site-title {
+    font-size: 1.2rem;
   }
 }
 
@@ -503,7 +520,7 @@ footer {
   }
 
   .content-section {
-    padding: 80px 15px 40px;
+    padding: 15px; /* Adjusted for mobile */
   }
 
   .content-section h2 {
