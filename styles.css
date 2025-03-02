@@ -215,7 +215,7 @@ nav.scrolled .title-container {
 }
 
 .subtitle {
-  font-size: 2.5rem;
+  font-size: 4rem;
   letter-spacing: 4px;
   animation: subtitleFade 6s infinite ease-in-out;
 }
@@ -454,7 +454,7 @@ footer {
   }
 
   .subtitle {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   nav.scrolled .site-title {
