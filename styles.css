@@ -46,7 +46,6 @@ nav .container {
   margin: 0 auto;
   padding: 0 20px;
   background: #0b0b0b;
-  
 }
 
 .hamburger {
@@ -72,7 +71,6 @@ nav .container {
 nav.scrolled .nav-links {
   opacity: 1;
   visibility: visible;
-  
 }
 
 .nav-links a {
@@ -334,8 +332,7 @@ nav.scrolled .subtitle {
   flex-direction: column;
   gap: 20px;
   max-width: 600px;
-  margin-left: 70px;
-  margin-top: 0 auto;
+  margin: 0 auto;
 }
 
 .embedded-box {
@@ -347,7 +344,6 @@ nav.scrolled .subtitle {
   align-items: center;
   justify-content: center;
   text-align: center;
-  
 }
 
 .dropping-texts {
