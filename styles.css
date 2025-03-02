@@ -24,13 +24,7 @@ body {
   z-index: 0;
   background: transparent;
 }
-#navbar{
-  background: transparent;
 
-}
-#patli_line{
-  background: transparent;
-}
 /* Navigation */
 nav {
   position: fixed;
@@ -48,9 +42,20 @@ nav .container {
   justify-content: flex-end;
   align-items: center;
   position: relative;
-  height: 100%;
-  background: #000;
-  padding-right: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10000;
 }
 
 .nav-links {
@@ -83,7 +88,6 @@ nav.scrolled .nav-links {
 /* Dropdown Styles */
 .dropdown {
   position: relative;
-  display: inline-block;
 }
 
 .dropdown-content {
@@ -97,15 +101,11 @@ nav.scrolled .nav-links {
   border-radius: 4px;
   top: 100%;
   left: 0;
-  right: 20px;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown.active .dropdown-content {
   display: block;
-}
-
-.dropdown-item {
-  position: relative;
 }
 
 .dropdown-item > a {
@@ -130,7 +130,8 @@ nav.scrolled .nav-links {
   border-radius: 4px;
 }
 
-.dropdown-item:hover .sub-dropdown {
+.dropdown-item:hover .sub-dropdown,
+.dropdown-item.active .sub-dropdown {
   display: block;
 }
 
@@ -165,8 +166,6 @@ nav.scrolled .nav-links {
   align-items: center;
   position: relative;
   z-index: 1;
-  background: transparent;
-  padding-top: 20px;
   pointer-events: none;
 }
 
@@ -178,7 +177,6 @@ nav.scrolled .nav-links {
   text-align: center;
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
-  background: transparent;
   pointer-events: auto;
 }
 
@@ -187,7 +185,6 @@ nav.scrolled .title-container {
   top: 20px;
   left: 20px;
   transform: none;
-  z-index: 2;
 }
 
 .site-title,
@@ -236,7 +233,7 @@ nav.scrolled .subtitle {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 0;
 }
 
 /* Animations */
@@ -260,18 +257,13 @@ nav.scrolled .subtitle {
 .content-section {
   background: transparent;
   position: relative;
-  overflow: hidden;
   z-index: 1;
-  pointer-events: none;
-  padding-bottom: 100px;
-  padding-left: 20px;
+  padding: 100px 20px 60px;
 }
 
 .content-section .container {
-  padding-top: 20px;
-  padding-left: 20px;
-  background: transparent;
-  pointer-events: auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .content-section h2 {
@@ -280,67 +272,60 @@ nav.scrolled .subtitle {
   letter-spacing: 3px;
   margin-bottom: 40px;
   text-align: center;
-  color: #fff;
 }
 
 .section-content {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
-  z-index: 1;
-  padding-left: 20px;
-  pointer-events: auto;
 }
 
 .section-content p {
   margin-bottom: 30px;
   font-size: 1.1rem;
-  line-height: 1.8;
-  color: #fff;
 }
 
 .section-content ul {
   list-style: none;
   margin-bottom: 30px;
-  text-align: center; /* Align contact items to the left */
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
-#a
 
 .section-content li {
-  margin-bottom: 15px; /* Increased spacing between items */
+  margin-bottom: 15px;
   font-size: 1.1rem;
-  color: #fff;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .section-content li i {
-  margin-right: 10px; /* Space between icon and text */
-  color: #00ffcc; /* Match link hover color */
+  margin-right: 10px;
+  color: #00ffcc;
 }
 
 .section-content a {
   color: #00ffcc;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
 .section-content a:hover {
   color: #00ff00;
 }
 
-/* Embedded Section Specific Styles */
+/* Embedded Section */
 .embedded-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 20px;
   max-width: 600px;
   margin: 0 auto;
 }
 
 .embedded-box {
-  width: 100%;
   padding: 20px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
@@ -348,49 +333,23 @@ nav.scrolled .subtitle {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.box-1 p {
-  margin: 0;
-}
-/
-.separator {
-  width: 80%;
-  height: 5px;
-  background: #fff;
-  opacity: 0.3;
-  position: relative;
-}
-
-/* Removed animation from separator */
-.separator::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #00ffcc; /* Static color, no animation */
+  text-align: center;
 }
 
 .dropping-texts {
-  display: inline-block;
   width: 280px;
   text-align: center;
   height: 36px;
-  vertical-align: -2px;
   position: relative;
 }
 
 .dropping-texts > div {
   font-size: 0px;
   opacity: 0;
-  margin-left: 0;
   position: absolute;
-  font-weight: 400;
-  color: #fff;
   width: 100%;
 }
 
-/* Animation for Embedded Section (11 items, 1.5s each = 16.5s total) */
 #embedded .dropping-texts > div {
   animation: drop 16.5s infinite ease-in-out;
 }
@@ -407,7 +366,6 @@ nav.scrolled .subtitle {
 #embedded .dropping-texts > div:nth-child(10) { animation-delay: 13.5s; }
 #embedded .dropping-texts > div:nth-child(11) { animation-delay: 15s; }
 
-/* Animation for EdTech Section (7 items, 1.5s each = 10.5s total) */
 #edtech .dropping-texts > div {
   animation: drop 10.5s infinite ease-in-out;
 }
@@ -420,62 +378,30 @@ nav.scrolled .subtitle {
 #edtech .dropping-texts > div:nth-child(6) { animation-delay: 7.5s; }
 #edtech .dropping-texts > div:nth-child(7) { animation-delay: 9s; }
 
-/* Updated Keyframes for Non-Overlapping Animation */
 @keyframes drop {
-  0% {
-    font-size: 0px;
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  4% { /* Start fading in */
-    font-size: 1rem;
-    opacity: 1;
-    transform: translateY(0);
-  }
-  9% { /* Fully visible */
-    font-size: 1rem;
-    opacity: 1;
-    transform: translateY(0);
-  }
-  13% { /* Start fading out */
-    font-size: 0px;
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    font-size: 0px;
-    opacity: 0;
-    transform: translateY(20px);
-  }
+  0% { font-size: 0px; opacity: 0; transform: translateY(-20px); }
+  4% { font-size: 1rem; opacity: 1; transform: translateY(0); }
+  9% { font-size: 1rem; opacity: 1; transform: translateY(0); }
+  13% { font-size: 0px; opacity: 0; transform: translateY(20px); }
+  100% { font-size: 0px; opacity: 0; transform: translateY(20px); }
 }
 
-/* Contact and Enquiry Forms */
+/* Enquiry Form */
 #enquiry-form {
   max-width: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  z-index: 1;
-  padding-left: 20px;
-  background: transparent;
-  pointer-events: auto;
 }
 
 #enquiry-form input,
 #enquiry-form textarea {
-  width: 100%;
   padding: 15px;
   border: 1px solid #333;
   background: transparent;
   color: #fff;
-  font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
-}
-
-#enquiry-form input::placeholder,
-#enquiry-form textarea::placeholder {
-  color: #666;
 }
 
 #enquiry-form textarea {
@@ -488,132 +414,234 @@ nav.scrolled .subtitle {
   background: transparent;
   border: 1px solid #fff;
   color: #fff;
-  font-family: 'Montserrat', sans-serif;
   font-size: 0.9rem;
-  letter-spacing: 2px;
   cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 #enquiry-form button:hover {
   background: rgba(255, 255, 255, 0.1);
-  color: #fff;
 }
 
 /* Footer */
 footer {
-  padding: 30px 0 30px 20px;
-  background: transparent;
-  position: relative;
-  z-index: 1;
-  pointer-events: none;
-}
-
-footer .container {
-  padding-top: 20px;
-  padding-left: 20px;
-  background: transparent;
-  pointer-events: auto;
-}
-
-footer p {
+  padding: 30px 20px;
   text-align: center;
   font-size: 0.9rem;
-  letter-spacing: 1px;
-  color: #fff;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-  
-  nav.scrolled .nav-links {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-    gap: 15px;
-    font-size: 0.8rem;
-  }
-  
-  .dropdown-content {
-    min-width: 150px;
-    padding-right: 20px;
-    right: 10px;
-  }
-  
-  .sub-dropdown {
-    position: static;
-    box-shadow: none;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  
-  .dropdown-arrow {
-    font-size: 0.6rem;
-  }
-  
+@media (max-width: 1024px) {
   .site-title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
     font-size: 2rem;
   }
-  
-  .subtitle {
-    font-size: 1.5rem;
-  }
-  
+
   nav.scrolled .site-title {
     font-size: 1.2rem;
   }
-  
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: #0b0b0b;
+    padding: 60px 20px 20px;
+    opacity: 1;
+    visibility: visible;
+    z-index: 9998;
+    align-items: flex-end;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  nav.scrolled .nav-links:not(.active) {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    padding: 10px 20px;
+    min-width: 100%;
+    text-align: right;
+  }
+
+  .sub-dropdown {
+    position: static;
+    padding: 10px 20px 10px 40px;
+    min-width: 100%;
+    text-align: right;
+  }
+
+  .site-title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  nav.scrolled .site-title {
+    font-size: 1rem;
+  }
+
   .content-section {
-    padding-bottom: 60px;
-    padding-left: 10px;
+    padding: 80px 15px 40px;
   }
-  
-  .embedded-container {
-    max-width: 100%;
+
+  .content-section h2 {
+    font-size: 1.5rem;
   }
-  
+
+  .section-content p {
+    font-size: 1rem;
+  }
+
+  .section-content li {
+    font-size: 1rem;
+  }
+
+  .dropping-texts {
+    width: 100%;
+  }
+
+  @keyframes drop {
+    0% { font-size: 0px; opacity: 0; transform: translateY(-20px); }
+    4% { font-size: 0.9rem; opacity: 1; transform: translateY(0); }
+    9% { font-size: 0.9rem; opacity: 1; transform: translateY(0); }
+    13% { font-size: 0px; opacity: 0; transform: translateY(20px); }
+    100% { font-size: 0px; opacity: 0; transform: translateY(20px); }
+  }
+
+  #enquiry-form input,
+  #enquiry-form textarea {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+
+  #enquiry-form button {
+    font-size: 0.8rem;
+    padding: 12px 25px;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  nav.scrolled .site-title {
+    font-size: 0.9rem;
+  }
+
+  .content-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .section-content p {
+    font-size: 0.9rem;
+  }
+
+  .section-content li {
+    font-size: 0.9rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .section-content li i {
+    margin-right: 0;
+  }
+
   .embedded-box {
     padding: 15px;
+    min-height: 80px;
   }
-  
-  .dropping-texts {
-    width: 150px;
-    height: 30px;
+
+  #enquiry-form input,
+  #enquiry-form textarea {
+    font-size: 0.85rem;
+    padding: 10px;
   }
-  
-  #embedded .dropping-texts > div,
-  #edtech .dropping-texts > div {
-    font-size: 0px; /* Reset for smaller screens */
+
+  #enquiry-form textarea {
+    height: 120px;
   }
-  
-  @keyframes drop {
-    0% {
-      font-size: 0px;
-      opacity: 0;
-      transform: translateY(-15px);
-    }
-    4% {
-      font-size: 0.9rem; /* Adjusted for smaller screens */
-      opacity: 1;
-      transform: translateY(0);
-    }
-    9% {
-      font-size: 0.9rem;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    13% {
-      font-size: 0px;
-      opacity: 0;
-      transform: translateY(15px);
-    }
-    100% {
-      font-size: 0px;
-      opacity: 0;
-      transform: translateY(15px);
-    }
+
+  #enquiry-form button {
+    font-size: 0.75rem;
+    padding: 10px 20px;
+  }
+
+  footer {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .site-title {
+    font-size: 1.2rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  nav.scrolled .site-title {
+    font-size: 0.8rem;
+  }
+
+  .content-section h2 {
+    font-size: 1.1rem;
+  }
+
+  .section-content p {
+    font-size: 0.85rem;
+  }
+
+  .section-content li {
+    font-size: 0.85rem;
+  }
+
+  .embedded-box {
+    padding: 10px;
+  }
+
+  #enquiry-form input,
+  #enquiry-form textarea {
+    font-size: 0.8rem;
+  }
+
+  #enquiry-form button {
+    font-size: 0.7rem;
+  }
+
+  footer {
+    font-size: 0.7rem;
   }
 }
