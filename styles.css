@@ -565,6 +565,9 @@ footer {
 
   .subtitle {
     font-size: 1.2rem;
+    width: 90%; /* Adjust width to allow text to wrap */
+    text-align: center;
+    white-space: normal;
   }
 
   nav.scrolled .site-title {
@@ -622,6 +625,9 @@ footer {
 
   .subtitle {
     font-size: 1rem;
+    width: 90%; /* Adjust width to allow text to wrap */
+    text-align: center;
+    white-space: normal;
   }
 
   nav.scrolled .site-title {
