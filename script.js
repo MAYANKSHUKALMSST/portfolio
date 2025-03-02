@@ -75,6 +75,18 @@ particlesJS('particles-js', {
   "retina_detect": true
 });
 
+// Function to set content offset
+function setContentOffset() {
+  const navbar = document.getElementById('navbar');
+  const hero = document.querySelector('.hero');
+  const mainContent = document.querySelector('.main-content');
+  const navbarHeight = navbar.offsetHeight;
+
+  // Set padding-top for hero and margin-top for main content
+  hero.style.paddingTop = `${navbarHeight}px`; // Hero stays below navbar
+  mainContent.style.marginTop = `${navbarHeight}px`; // Content starts where navbar ends
+}
+
 // Navbar and title movement
 window.addEventListener('scroll', () => {
   const navbar = document.getElementById('navbar');
@@ -93,6 +105,8 @@ window.addEventListener('scroll', () => {
       heroContent.insertBefore(titleContainer, heroContent.firstChild);
     }
   }
+
+  setContentOffset();
 });
 
 // Toggle mobile menu and dropdowns
@@ -117,18 +131,6 @@ document.querySelectorAll('.dropdown-item > a').forEach(item => {
     }
   });
 });
-
-// Dynamically set content offset to start below navbar
-function setContentOffset() {
-  const navbar = document.getElementById('navbar');
-  const hero = document.querySelector('.hero');
-  const mainContent = document.querySelector('.main-content');
-  const navbarHeight = navbar.offsetHeight;
-
-  // Set padding-top for hero and margin-top for main content
-  hero.style.paddingTop = `${navbarHeight}px`; // Hero stays below navbar
-  mainContent.style.marginTop = `${navbarHeight}px`; // Content starts where navbar ends
-}
 
 // Run on load and resize to ensure content aligns below navbar
 window.addEventListener('load', setContentOffset);
