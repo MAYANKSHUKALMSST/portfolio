@@ -95,19 +95,41 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Dynamically set content offset based on navbar height
+// Toggle mobile menu and dropdowns
+document.querySelector('.hamburger').addEventListener('click', () => {
+  document.querySelector('.nav-links').classList.toggle('active');
+});
+
+document.querySelectorAll('.dropbtn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      btn.closest('.dropdown').classList.toggle('active');
+    }
+  });
+});
+
+document.querySelectorAll('.dropdown-item > a').forEach(item => {
+  item.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      item.closest('.dropdown-item').classList.toggle('active');
+    }
+  });
+});
+
+// Dynamically set content offset
 function setContentOffset() {
   const navbar = document.getElementById('navbar');
   const hero = document.querySelector('.hero');
   const contentSections = document.querySelectorAll('.content-section');
-  
-  const navbarHeight = navbar.offsetHeight; // Get actual height including padding
-  hero.style.paddingTop = `${navbarHeight}px`; // Offset hero section
+  const navbarHeight = navbar.offsetHeight;
+
+  hero.style.paddingTop = `${navbarHeight}px`;
   contentSections.forEach(section => {
-    section.style.paddingTop = `${navbarHeight + 100}px`; // Offset content sections
+    section.style.paddingTop = `${navbarHeight + 100}px`;
   });
 }
 
-// Run on load and resize to handle dynamic navbar height
 window.addEventListener('load', setContentOffset);
 window.addEventListener('resize', setContentOffset);
