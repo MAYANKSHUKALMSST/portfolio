@@ -118,18 +118,18 @@ document.querySelectorAll('.dropdown-item > a').forEach(item => {
   });
 });
 
-// Dynamically set content offset
+// Dynamically set content offset to start below navbar
 function setContentOffset() {
   const navbar = document.getElementById('navbar');
   const hero = document.querySelector('.hero');
-  const contentSections = document.querySelectorAll('.content-section');
+  const mainContent = document.querySelector('.main-content');
   const navbarHeight = navbar.offsetHeight;
 
-  hero.style.paddingTop = `${navbarHeight}px`;
-  contentSections.forEach(section => {
-    section.style.paddingTop = `${navbarHeight + 100}px`;
-  });
+  // Set padding-top for hero and margin-top for main content
+  hero.style.paddingTop = `${navbarHeight}px`; // Hero stays below navbar
+  mainContent.style.marginTop = `${navbarHeight}px`; // Content starts where navbar ends
 }
 
+// Run on load and resize to ensure content aligns below navbar
 window.addEventListener('load', setContentOffset);
 window.addEventListener('resize', setContentOffset);
