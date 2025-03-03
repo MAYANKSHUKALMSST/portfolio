@@ -198,10 +198,10 @@ nav.scrolled .title-container {
   transform: translateX(-50%);
   font-weight: 300;
   color: #fff;
-  white-space: nowrap;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   z-index: 2;
+  white-space: nowrap; /* Both title and subtitle stay in one line initially */
 }
 
 .site-title {
@@ -507,7 +507,11 @@ footer {
   }
 
   .subtitle {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
+    white-space: normal; /* Allow subtitle to wrap */
+    width: 90%; /* Limit width to encourage wrapping */
+    margin: 0 auto; /* Center the subtitle */
+    text-align: center;
   }
 
   nav.scrolled .site-title {
@@ -564,10 +568,11 @@ footer {
   }
 
   .subtitle {
-    font-size: 1.2rem;
-    width: 90%; /* Adjust width to allow text to wrap */
+    font-size: 1.4rem;
+    white-space: normal; /* Ensure subtitle wraps */
+    width: 90%; /* Limit width to encourage two-line wrap */
+    margin: 0 auto; /* Center the subtitle */
     text-align: center;
-    white-space: normal;
   }
 
   nav.scrolled .site-title {
@@ -624,10 +629,11 @@ footer {
   }
 
   .subtitle {
-    font-size: 1rem;
-    width: 90%; /* Adjust width to allow text to wrap */
+    font-size: 1.2rem;
+    white-space: normal; /* Ensure subtitle wraps */
+    width: 90%; /* Limit width to encourage two-line wrap */
+    margin: 0 auto; /* Center the subtitle */
     text-align: center;
-    white-space: normal;
   }
 
   nav.scrolled .site-title {
